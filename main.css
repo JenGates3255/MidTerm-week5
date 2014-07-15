@@ -1,0 +1,28 @@
+
+.appName{
+	margin-left:40%;
+
+}
+.photoContainer{
+	background-color: gray;
+
+}
+.closetImage {
+	width: 100px;
+	height: 140px;
+}
+
+.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
+display: block;
+width: 100% \9;
+max-width: 100%;
+height: 130px;
+}
+
+
+/*When Larger View button is clicked- expand image */
+.modalImage{
+	width: 400px;
+	height: 550px;
+
+}
