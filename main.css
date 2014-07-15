@@ -26,3 +26,8 @@ height: 130px;
 	height: 550px;
 
 }
+/*larger view button*/
+.largerView{
+	margin-top:-25%; 
+	margin-bottom:20%;
+}

@@ -11,23 +11,24 @@
   <h1 class='appName'> App Name Here  </h1>
 </div>
 
+
 <div class="container">
   <div class='row'>  
-    <div class="panel-group col-sm-4" id="accordion">
+    <div class="panel-group col-md-4" id="accordion">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            <a data-toggle="collapse" data-parent="#accordion" href="#tops">
               Tops -
             </a>
           </h4>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in">
+        <div id="tops" class="panel-collapse collapse in">
           <div class="panel-body">
             <ul>
-              <li><a href="#"> Tanks </a></li>
-              <li><a href="#"> Long SLV </a></li>
-              <LI><a href="#"> Short SLV </a></li>
+              <li><a class='selectedCategory' href="#" data-type="tank"> Tanks </a></li>
+              <li><a class='selectedCategory' href="#" data-type="long-sleeve"> Long Sleeve </a></li>
+              <LI><a class='selectedCategory' href="#" data-type="short-sleeve"> Short Sleeve </a></li>
            </ul>
           </div>
         </div>
@@ -35,17 +36,17 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+            <a data-toggle="collapse" data-parent="#accordion" href="#bottoms">
               Bottoms -
             </a>
           </h4>
         </div>
-        <div id="collapseTwo" class="panel-collapse collapse">
+        <div id="bottoms" class="panel-collapse collapse">
           <div class="panel-body">
             <ul>
-              <li><a href="#"> Pants </a></li>
-              <li><a href="#"> Shorts </a></li>
-              <li><a href="#"> Skirts </a></li>
+              <li><a class='selectedCategory' href="#" data-type="pants"> Pants </a></li>
+              <li><a class='selectedCategory' href="#" data-type="shorts"> Shorts </a></li>
+              <li><a class='selectedCategory' href="#" data-type="skirts"> Skirts </a></li>
             </ul>
           </div>
         </div>
@@ -53,615 +54,105 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+            <a data-toggle="collapse" data-parent="#accordion" href="#dresses">
               Dresses -
             </a>
           </h4>
         </div>
-        <div id="collapseThree" class="panel-collapse collapse">
+        <div id="dresses" class="panel-collapse collapse">
           <div class="panel-body">
            <ul>
-              <li><a href="#"> Short </a></li>
-              <li><a href="#"> Long </a></li> 
+              <li><a class='selectedCategory' href="#" data-type="short-dress"> Short </a></li>
+              <li><a class='selectedCategory' href="#" data-type="long-dress"> Long </a></li> 
             </ul>
           </div>
         </div>
-
       </div> <!-- close panel panel-default -->
+<!-- add item bar here -->
+        <div>
+          <form class='form-inline' role='form'>
+            <div class='form-group'>
+              <label class='sr-only' for='nameNewMyItem'> name your new item! </label>
+              <input type="name" class="form-control" id="nameNewItem" placeholder="name your new item!">
+            </div>
+            <button type="button" class="btn btn-info">add name</button>
+          </form>
+        </div>
+
+        <div class="dropdown col-md-4">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            Category
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Tops </a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Bottoms </a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Dresses </a></li>
+          </ul>
+        </div>
+        <div class="dropdown col-md-4">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            Type
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Tanks - tops </a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Short Sleeve - tops </a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Long Sleeve - tops </a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Pants - bottoms </a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Shorts - bottoms </a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Skirts - bottoms </a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> dresses - Short </a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> dresses - Long </a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown col-md-4">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+           Color
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Red</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Orange</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Yellow</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Green</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Blue</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Purple</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pink</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cream</a></li>                 
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Denim</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Beige</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">White</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Black</a></li>
+          </ul>
+        </div>
+        <div>
+          <form class='form-inline' role='form'>
+            <div class='form-group'>
+              <label class='sr-only' for='new image'> New item image </label>
+              <input type="name" class="form-control" id="newItemImg" placeholder="New image URL">
+            </div>
+            <button type="button" class="btn btn-info"> new img URL</button>
+          </form>
+        </div> 
+
+
+
     </div>   <!-- close panel accordion -->
 <!-- Item display section -->
- 
-    <div class='photoContainer col-md-8'> Selected Items: 
- 
+    <div id="catalogItems" class='photoContainer col-md-8'> Selected Items: 
       <div class="row">
-        <!-- TOPS ....................................-->
-        <!-- tanks -->
-
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/tanks/tank.jpg" alt="purpleTank">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalPurpleTank">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalPurpleTank" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/tanks/tank.jpg" alt="purpleTank">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/tanks/tank%202.jpg" alt="blackTank">
-          </a>
-           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalBlackTank">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalBlackTank" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/tanks/tank%202.jpg" alt="blackTank">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-        <!-- long sleeves -->
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/longslv/long%20sleeve%20t.jpg" alt="blkstripelong">
-          </a>
-           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalblkstripelongslv">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalblkstripelongslv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/longslv/long%20sleeve%20t.jpg" alt="blkstripelong">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/longslv/long%20sleeve%20t%202.jpg" alt="blueSlouchie">
-          </a>
-           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalBlueSlouchie">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalBlueSlouchie" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/longslv/long%20sleeve%20t%202.jpg" alt="blueSlouchie">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
-        <!-- Short Sleeves -->
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/shortslv/short%20sleeve%20t.jpg" alt="Califshirt">
-          </a>
-           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalCalifShirt">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalCalifShirt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/shortslv/short%20sleeve%20t.jpg" alt="Califshirt">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/shortslv/short%20sleeve%20t%202.jpg" alt="teal">
-          </a>
-           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalTealTop">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalTealTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/tops/shortslv/short%20sleeve%20t%202.jpg" alt="teal">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-        <!-- BOTTOMS .................................. -->
-        <!-- Pants -->
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/pants/pants.jpg" alt="blackslacks">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalblackslacks">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalblackslacks" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/pants/pants.jpg" alt="blackslacks">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/pants/pants%202.jpg" alt="khakis">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalkhakis">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalkhakis" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/pants/pants%202.jpg" alt="khakis">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-        <div class='col-md-2'>
-          <a href="#" class='thumbnail'>
-           <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/pants/pants%203.jpg" alt='jeans'>
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModaljeans">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModaljeans" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/pants/pants%203.jpg" alt='jeans'>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-        <!-- Shorts -->
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/shorts/shorts.jpg" alt="jeanshorts">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModaljeanshorts">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModaljeanshorts" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/shorts/shorts.jpg" alt="jeanshorts">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
-        <!-- Skirts -->
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/skirt.jpg" alt="blkminiskirt">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalblkminiskirt">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalblkminiskirt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/skirt.jpg" alt="blkminiskirt">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/skirt%203.jpg" alt="whiteskirt">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalwhiteskirt">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalwhiteskirt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/skirt%203.jpg" alt="whiteskirt">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/skirt%202.jpg" alt="blkskaterskirt">
-          </a>
-           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalblkskaterskirt">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalblkskaterskirt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/skirt%202.jpg" alt="blkskatersrt">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-  <!-- DRESSES ........................................ -->
-        <!-- Long  -->
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/long%20/long%20dress.jpg" alt="pinkmaxi">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalpinkmaxi">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalpinkmaxi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/long%20/long%20dress.jpg" alt="pinkmaxi">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/long%20/long%20dress%202.jpg" alt="whitemaxi">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalwhitemaxi">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalwhitemaxi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/long%20/long%20dress%202.jpg" alt="whitemaxi">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Short -->
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/short/short%20dress%204.jpg" alt="floral3qrtr">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalloral3qrtr">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalloral3qrtr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/short/short%20dress%204.jpg" alt="floral3qrtr">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>    
-       
-
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/short/short%20dress.jpg" alt="pinkshort">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalpinkshort">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalpinkshort" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                 <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/short/short%20dress.jpg" alt="pinkshort">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>    
-      </div>
-
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/short/short%20dress%203.jpg" alt="whiteshort">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalwhiteshort">
-            Larger View
-          </button>
-           <div class="modal fade" id="myModalwhiteshort" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                  <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/short/short%20dress%203.jpg" alt='whiteshort'>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>    
-    
-
-
-
-
-        <div class="col-md-2">
-          <a href="#" class="thumbnail">
-            <img class='closetImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/short/short%20dress%202.jpg" alt="blackshort">
-          </a>
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalblackshort">
-            Larger View
-          </button>
-          <div class="modal fade" id="myModalblackshort" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                  <img class='modalImage' src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/dresses/short/short%20dress%202.jpg" alt="blackshort">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>   <!-- closing 'row' div -->
-    </div>  <!-- closing 'Photocontainer' div -->
-
+        <!-- cols entered through javascript-->
+      </div> <!-- .row -->
+    </div> <!-- close selected items photo container-->
    </div> <!-- close row -->
 </div>  <!-- close container -->
 
 
 
  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+ <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="main.js"></script>
 
