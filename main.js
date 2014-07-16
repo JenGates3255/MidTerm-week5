@@ -2,7 +2,7 @@ _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
-var myItem = [
+var myItems = [
 
 	{	
 		name: 'purple tank',
@@ -147,10 +147,14 @@ var myItem = [
 // 	img: 'img'
 // }
 
-_.each(myItem, function(item) {
+
+// assign unique ID to each item 
+_.each(myItems, function(item) {
 	item.id = _.uniqueId('item');
 });
  
+
+ // Default setting to all pictured items
 var colTemplate = '\
 	<div id="{{ id }}" class="fullImage col-md-2">\
       <a href="#" class="thumbnail">\
@@ -166,7 +170,7 @@ var colTemplate = '\
               <button type="button" class="close" data-dismiss="modal">\
               </button>\
             </div>\
-            <div class="modal-body text-center">\
+            <div class="modal-body text-left">\
              <img class="modalImage" src="{{ img }}" alt="{{ name }}">\
             </div>\
             <div class="modal-footer">\
@@ -184,19 +188,25 @@ $(document).on('ready', function() {
 	var addItem = function(item) {
 //calling underscore .template method- dynamically 		
 		var template = _.template(colTemplate);
-		$('#catalogItems .row').append(template(item));
+		var newElement = $(template(item));
+		$('#catalogItems .row').append(newElement);
+		newElement.on('shown.bs.modal', function(e){
+			console.log('Hello World');
+
+			$(this).find('.modal-body').append('<img class="newImage" src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/leather%20pencil%20skirt.jpg">','<img class="newImage" src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/leather%20pencil%20skirt.jpg">','<img class="newImage" src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/leather%20pencil%20skirt.jpg">');
+			console.log('hi')
+		})
 	};
 
 // .each- acts as 'for loop' but with underscore
-// 'item' parameter is object literal of myItem 
-	_.each(myItem, addItem);
+// 'item' parameter is array of objects of myItems 
+	_.each(myItems, addItem);
 
 // selecting from menu items on sidebar
 	$('.selectedCategory').on('click', function(){
 		 var type = $(this).attr("data-type");
 		 console.log(type);
-
-		 _.each(myItem, function(item) {
+		 _.each(myItems, function(item) {
 			if(type === item.type){
 				$('#' + item.id).show();
 			}
@@ -207,7 +217,6 @@ $(document).on('ready', function() {
 	});
 
 	
-
 	$(document).on('click','.deleteItem', function(){
 		console.log('hello')
 		 var id = $(this).attr('data-delete-id');
@@ -217,24 +226,26 @@ $(document).on('ready', function() {
 		});
 	});
 
-$('.newItemForm').on('submit',function(e){
-	e.preventDefault();
-	var item = {
-		name: $('.newItemName').val(),
-		category: $('.newItemCategory').val(),
-		type: $('.newItemType').val(),
-		color: $('.newItemColor').val(),
-		img: $('.newItemImg').val(),
-		id: _.uniqueId('item')
+	$('.newItemForm').on('submit',function(e){
+		e.preventDefault();
+		var item = {
+			name: $('.newItemName').val(),
+			category: $('.newItemCategory').val(),
+			type: $('.newItemType').val(),
+			color: $('.newItemColor').val(),
+			img: $('.newItemImg').val(),
+			id: _.uniqueId('item')
+		};
+				this.reset();
 
-	};
-			this.reset();
-
-			addItem(item);
-		myItem.push(item);		
+				addItem(item);
+			myItems.push(item);		
+	})
 
 
-})
+
+
+
 
 
 }); //end of doc.on ready

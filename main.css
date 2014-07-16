@@ -1,4 +1,6 @@
-
+/*body{
+	background-image: url('http://wallpaperstock.net/outer-space-damask_wallpapers_35146_1920x1080.jpg');
+}*/
 .appName{
 	margin-left:40%;
 
@@ -22,12 +24,25 @@ height: 130px;
 
 /*When Larger View button is clicked- expand image */
 .modalImage{
-	width: 400px;
-	height: 550px;
-
+	width: 70%;
+	height: 100%;
+	float: left;
+}
+.modal-footer{
+	clear: left;
 }
 /*larger view button*/
 .largerView{
 	margin-top:-25%; 
 	margin-bottom:20%;
+}
+.inserted-text{
+	display: inline;
+	text-align:center;
+}
+
+.newImage{
+	display: inline-block;
+	width: 25%;
+	height: 30%;
 }
