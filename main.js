@@ -139,6 +139,14 @@ var myItem = [
 	},
 ];
 
+// var newItem = function(name, category, type, color, img){	
+// 	name: 'name',
+// 	category: 'category',
+// 	type: 'type',
+// 	color: 'color',
+// 	img: 'img'
+// }
+
 _.each(myItem, function(item) {
 	item.id = _.uniqueId('item');
 });
@@ -162,8 +170,8 @@ var colTemplate = '\
              <img class="modalImage" src="{{ img }}" alt="{{ name }}">\
             </div>\
             <div class="modal-footer">\
-                <button type="button" class="btn btn-danger">Delete Item</button>\
-                <button type="button" class=" btn btn-info" data-dismiss="modal">Close</button> \
+                <button data-delete-id="{{ id }}" type="button" class="deleteItem btn btn-danger" data-dismiss="modal">Delete Item</button>\
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button> \
              </div>\
           </div>\
         </div>\
@@ -173,13 +181,15 @@ var colTemplate = '\
 
 $(document).on('ready', function() {
 
-// .each- acts as 'for loop' but with underscore
-// 'item' parameter is object literal of myItem 
-	_.each(myItem, function(item) {
+	var addItem = function(item) {
 //calling underscore .template method- dynamically 		
 		var template = _.template(colTemplate);
 		$('#catalogItems .row').append(template(item));
-	});
+	};
+
+// .each- acts as 'for loop' but with underscore
+// 'item' parameter is object literal of myItem 
+	_.each(myItem, addItem);
 
 // selecting from menu items on sidebar
 	$('.selectedCategory').on('click', function(){
@@ -195,6 +205,37 @@ $(document).on('ready', function() {
 			}
 		 });
 	});
+
+	
+
+	$(document).on('click','.deleteItem', function(){
+		console.log('hello')
+		 var id = $(this).attr('data-delete-id');
+
+		 $(this).parents('.modal').one('hidden.bs.modal', function (e) {
+		 	$('#' + id).remove();
+		});
+	});
+
+$('.newItemForm').on('submit',function(e){
+	e.preventDefault();
+	var item = {
+		name: $('.newItemName').val(),
+		category: $('.newItemCategory').val(),
+		type: $('.newItemType').val(),
+		color: $('.newItemColor').val(),
+		img: $('.newItemImg').val(),
+		id: _.uniqueId('item')
+
+	};
+			this.reset();
+
+			addItem(item);
+		myItem.push(item);		
+
+
+})
+
 
 }); //end of doc.on ready
 

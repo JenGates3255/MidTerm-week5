@@ -67,86 +67,90 @@
             </ul>
           </div>
         </div>
-      </div> <!-- close panel panel-default -->
-<!-- add item bar here -->
-        <div>
-          <form class='form-inline' role='form'>
-            <div class='form-group'>
-              <label class='sr-only' for='nameNewMyItem'> name your new item! </label>
-              <input type="name" class="form-control" id="nameNewItem" placeholder="name your new item!">
-            </div>
-            <button type="button" class="btn btn-info">add name</button>
-          </form>
+     </div>
+<!-- add item bar here....................................... -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#addNewItem">
+              Add New Item -
+            </a>
+          </h4>
         </div>
+        <div id="addNewItem" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <form class='form-inline newItemForm' role='form'>
+                  <div class='form-group'>
+                    <label class='sr-only' for='nameNewMyItem'> name your new item!</label>
+                    Name:
+                    <input type="text" class="form-control newItemName" id="nameNewItem" placeholder="name your new item!" required>
+                  </div>
+                  <!-- <button type="button" class="btn btn-info">add name</button> -->
+              <!--   </form> -->
+             
+              <div class="dropdown">
+                <select class="form-control newItemCategory" name="fieldname" required>
+                  <option value=''>-- Category --</option>
+                  <option value='tops'> Tops </option> 
+                  <option value='bottoms'> Bottoms </option> 
+                  <option value='dresses'> Dresses </option>  
+                </select>
+              </div>  
+              <div class="dropdown">
+                <select class="form-control newItemType" name="fieldname" required>
+                  <option value=''>-- Type --</option>
+                  <option value='tank'> Tanks - tops </option>
+                  <option value='short-sleeve'> Short Sleeve - tops </option>
+                  <option value='long-sleeve'> Long Sleeve - tops </option>
+                  <option value='pants'> Pants - bottoms </option>
+                  <option value='shorts'> Shorts - bottoms </option>
+                  <option value='skirt'> Skirts - bottoms </option>
+                  <option value='short-dress'> dresses - Short </option>
+                  <option value='long-dress'> dresses - Long </option>
+                </select>
+              </div>
+              <div class="dropdown">
+               <select class="form-control newItemColor" name="fieldname"required>
+                <option value=''>--Color --</option>
+                <option value='red'> Red </option>
+                <option value='orange'> Orange </option>
+                <option value='yellow'> Yellow </option>
+                <option value='green'> Green </option>
+                <option value='blue'> Blue </option>
+                <option value='purple'> Purple </option>
+                <option value='pink'> Pink </option>
+                <option value='cream'> Cream </option>
+                <option value='denim'> Denim </option>
+                <option value='beige'> Beige </option>
+                <option value='white'> White </option>
+                <option value='black'> Black </option>
+               </select>
+              </div>
+              <div>
+              <!--   <form class='form-inline' role='form'> -->
+                  <div class='form-group'>
+                    <label class='sr-only' for='new image'> New item image </label>
+                    New Image:
+                    <input type="text" class="form-control newItemImg" id="newItemImg" placeholder="image URL" required>
+                  </div>
+                
+                  <button type="submit" class="btn btn-info"> Sumbit </button>
+              </div>
+            </form>
+            </div> <!-- close panel-body -->  
+        </div> <!-- close add new item div -->
+   <!--    </div> -->  
 
-        <div class="dropdown col-md-4">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-            Category
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Tops </a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Bottoms </a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Dresses </a></li>
-          </ul>
-        </div>
-        <div class="dropdown col-md-4">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-            Type
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Tanks - tops </a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Short Sleeve - tops </a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Long Sleeve - tops </a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Pants - bottoms </a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Shorts - bottoms </a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Skirts - bottoms </a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> dresses - Short </a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> dresses - Long </a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown col-md-4">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-           Color
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Red</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Orange</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Yellow</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Green</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Blue</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Purple</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pink</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cream</a></li>                 
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Denim</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Beige</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">White</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Black</a></li>
-          </ul>
-        </div>
-        <div>
-          <form class='form-inline' role='form'>
-            <div class='form-group'>
-              <label class='sr-only' for='new image'> New item image </label>
-              <input type="name" class="form-control" id="newItemImg" placeholder="New image URL">
-            </div>
-            <button type="button" class="btn btn-info"> new img URL</button>
-          </form>
-        </div> 
-
-
-
-    </div>   <!-- close panel accordion -->
+    </div> <!-- close panel panel-default -->    
+</div>   <!-- close panel accordion -->
+<!-- ............................................................... -->
 <!-- Item display section -->
     <div id="catalogItems" class='photoContainer col-md-8'> Selected Items: 
       <div class="row">
         <!-- cols entered through javascript-->
       </div> <!-- .row -->
     </div> <!-- close selected items photo container-->
-   </div> <!-- close row -->
+   </div> <!-- close main body row -->
 </div>  <!-- close container -->
 
 
