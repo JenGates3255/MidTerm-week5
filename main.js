@@ -292,6 +292,10 @@ var findSuggestedItems = function(myItems, filter){
 			}
 		});
 	});
+	$('.view-all').on('click', function(){
+		console.log('helloworld')
+			$('.fullImage').show();
+	})
 
 	
 	$(document).on('click','.deleteItem', function(){
