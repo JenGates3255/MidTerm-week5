@@ -36,12 +36,8 @@ height: 130px;
 	margin-top:-25%; 
 	margin-bottom:20%;
 }
-.inserted-text{
-	display: inline;
-	text-align:center;
-}
 
-.newImage{
+.suggestedImage{
 	display: inline-block;
 	width: 25%;
 	height: 30%;

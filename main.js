@@ -181,20 +181,97 @@ var colTemplate = '\
         </div>\
       </div>\
     </div>';
-
+var suggestedItemTemplate = '<img class="suggestedImage" src="{{ img }}">';
 
 $(document).on('ready', function() {
+
+
+
+var findSuggestedItems = function(myItems, filter){
+	var versatileColors = ['cream','black','white','beige','denim'];
+	var restrictiveColors = ['red','orange','yellow','green','blue','purple','pink'];
+	var limit = 3;
+
+//filtering tops by color and suggesting matching bottoms 
+	var filtered = _.filter(myItems, function(item){
+
+		if (filter.category === 'tops' && item.category === 'bottoms'){
+			if(versatileColors.indexOf(filter.color)){
+				return true
+			}
+			if (restrictiveColors.indexOf(filter.color) && versatileColors.indexOf(item.color)) {
+				return true
+			};
+
+		}
+
+		if (filter.category === 'bottoms' && item.category === 'tops'){
+			if(versatileColors.indexOf(filter.color)){
+				return true
+			}
+			if (restrictiveColors.indexOf(filter.color) && versatileColors.indexOf(item.color)) {
+				return true
+			};
+		}
+	});
+		if (filtered.length > limit) {
+			var filterLimited = [];
+			while (limit--){
+			var randomitem = filtered.splice(Math.floor(Math.random()*filtered.length),1);
+			filterLimited.push(randomitem[0]);
+
+			}
+			return filterLimited
+		} 
+
+	return filtered
+		
+	
+
+}
 
 	var addItem = function(item) {
 //calling underscore .template method- dynamically 		
 		var template = _.template(colTemplate);
 		var newElement = $(template(item));
 		$('#catalogItems .row').append(newElement);
-		newElement.on('shown.bs.modal', function(e){
-			console.log('Hello World');
 
-			$(this).find('.modal-body').append('<img class="newImage" src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/leather%20pencil%20skirt.jpg">','<img class="newImage" src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/leather%20pencil%20skirt.jpg">','<img class="newImage" src="file:///Users/jgates/Pictures/MIDTERM-PHOTOS/bottoms/skirts/leather%20pencil%20skirt.jpg">');
-			console.log('hi')
+
+		newElement.on('shown.bs.modal', function(e){
+			// console.log('Hello World');
+			//var fullImage = $(this).closest('.fullImage')
+		
+				var fullImageID = $(this).attr('id')
+			
+				var foundItem =_.findWhere(myItems,{id:fullImageID})
+					 // To find selected item CATEGORY
+				var foundCategory = foundItem.category 
+					 // To find selected item TYPE
+				var foundType = foundItem.type
+			 		// To find seleceted item COLOR
+				var foundColor = foundItem.color
+				
+				console.log(foundCategory)
+				console.log(foundType)
+				console.log(foundColor)
+
+				var filtered = findSuggestedItems(myItems, foundItem)
+				console.log(filtered);
+				var $container = $('<div class="suggestedItemContainer">');
+
+				_.each(filtered, function(item ){
+					var html = _.template(suggestedItemTemplate, item);
+					$container.append(html);
+
+				})
+
+				
+			$(this).find('.modal-body').append($container);
+			// console.log('hi')
+		})
+		newElement.on('hidden.bs.modal', function(){
+			$(this).find('.suggestedItemContainer').remove();
+
 		})
 	};
 
@@ -206,14 +283,14 @@ $(document).on('ready', function() {
 	$('.selectedCategory').on('click', function(){
 		 var type = $(this).attr("data-type");
 		 console.log(type);
-		 _.each(myItems, function(item) {
+		_.each(myItems, function(item) {
 			if(type === item.type){
 				$('#' + item.id).show();
 			}
 			else {
 				$('#' + item.id).hide();
 			}
-		 });
+		});
 	});
 
 	
@@ -240,11 +317,9 @@ $(document).on('ready', function() {
 
 				addItem(item);
 			myItems.push(item);		
-	})
+	});
 
-
-
-
+		
 
 
 
