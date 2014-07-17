@@ -156,7 +156,7 @@ _.each(myItems, function(item) {
 
  // Default setting to all pictured items
 var colTemplate = '\
-	<div id="{{ id }}" class="fullImage col-md-2">\
+	<div id="{{ id }}" class="fullImage col-md-2 col-sm-2 col-xs-2">\
       <a href="#" class="thumbnail">\
         <img class="closetImage" src="{{ img }}" alt="{{ name }}">\
       </a>\
@@ -164,12 +164,12 @@ var colTemplate = '\
         Larger View\
       </button>\
        <div class="modal fade" id="{{ id }}Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">\
-        <div class="modal-dialog">\
+        <div class="modalStyling modal-dialog">\
           <div class="modal-content">\
-            <div class="modal-header">\
-              <button type="button" class="close" data-dismiss="modal">\
-              </button>\
-            </div>\
+             <div class="modal-header">\
+              	<button type="button" class="close" data-dismiss="modal">\
+              	</button>\
+             </div>\
             <div class="modal-body text-left">\
              <img class="modalImage" src="{{ img }}" alt="{{ name }}">\
             </div>\
@@ -185,57 +185,60 @@ var suggestedItemTemplate = '<img class="suggestedImage" src="{{ img }}">';
 
 $(document).on('ready', function() {
 
+	//
+	var findSuggestedItems = function(myItems, filter){
+		//setting variable for basic colors
+		var versatileColors = ['cream','black','white','beige','denim'];
+		//setting variables for restsrictive colors that dont match with everything
+		var restrictiveColors = ['red','orange','yellow','green','blue','purple','pink'];
+		// setting limit on ow many suggested items shoe
+		var limit = 3;
 
 
-var findSuggestedItems = function(myItems, filter){
-	var versatileColors = ['cream','black','white','beige','denim'];
-	var restrictiveColors = ['red','orange','yellow','green','blue','purple','pink'];
-	var limit = 3;
 
-//filtering tops by color and suggesting matching bottoms 
-	var filtered = _.filter(myItems, function(item){
+		var filtered = _.filter(myItems, function(item){
+			//filtering tops by color and suggesting matching bottoms 
+			if (filter.category === 'tops' && item.category === 'bottoms'){
+				if(versatileColors.indexOf(filter.color)){
+					return true
+				}
+				if (restrictiveColors.indexOf(filter.color) && versatileColors.indexOf(item.color)) {
+					return true
+				};
 
-		if (filter.category === 'tops' && item.category === 'bottoms'){
-			if(versatileColors.indexOf(filter.color)){
-				return true
 			}
-			if (restrictiveColors.indexOf(filter.color) && versatileColors.indexOf(item.color)) {
-				return true
-			};
-
-		}
-
-		if (filter.category === 'bottoms' && item.category === 'tops'){
-			if(versatileColors.indexOf(filter.color)){
-				return true
+			//filtering bottoms by color and suggesting tops to match
+			if (filter.category === 'bottoms' && item.category === 'tops'){
+				if(versatileColors.indexOf(filter.color)){
+					return true
+				}
+				if (restrictiveColors.indexOf(filter.color) && versatileColors.indexOf(item.color)) {
+					return true
+				};
 			}
-			if (restrictiveColors.indexOf(filter.color) && versatileColors.indexOf(item.color)) {
-				return true
-			};
-		}
-	});
+		});
+			//
 		if (filtered.length > limit) {
+			//create emty array to push random suggested items into
 			var filterLimited = [];
 			while (limit--){
-			var randomitem = filtered.splice(Math.floor(Math.random()*filtered.length),1);
+				// create variable with random selection functionality (selecting item from 'filtered' variable)
+				var randomitem = filtered.splice(Math.floor(Math.random()*filtered.length),1);
+
 			filterLimited.push(randomitem[0]);
 
 			}
 			return filterLimited
 		} 
+			return filtered
+	};  // end of findSuggestedItem
 
-	return filtered
-		
-	
-
-}
 
 	var addItem = function(item) {
-//calling underscore .template method- dynamically 		
+		//calling underscore .template method- dynamically 		
 		var template = _.template(colTemplate);
 		var newElement = $(template(item));
 		$('#catalogItems .row').append(newElement);
-
 
 		newElement.on('shown.bs.modal', function(e){
 			// console.log('Hello World');
@@ -251,9 +254,9 @@ var findSuggestedItems = function(myItems, filter){
 			 		// To find seleceted item COLOR
 				var foundColor = foundItem.color
 				
-				console.log(foundCategory)
-				console.log(foundType)
-				console.log(foundColor)
+				// console.log(foundCategory)
+				// console.log(foundType)
+				// console.log(foundColor)
 
 				var filtered = findSuggestedItems(myItems, foundItem)
 				console.log(filtered);

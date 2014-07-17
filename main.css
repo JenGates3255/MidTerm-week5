@@ -1,20 +1,26 @@
-/*body{
-	background-image: url('http://wallpaperstock.net/outer-space-damask_wallpapers_35146_1920x1080.jpg');
-}*/
+body{
+	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOGRdCpqTHL_UlF2gcFyECKXV7VKL2szPd_86an9C-qhiDbo9K');
+}
+@font-face{
+	font-family: myFirstFont;
+	src:url('');
+}
 .appName{
-	margin-left:40%;
+	text-align: center;
+	font-family: myFirstFont;
+	color: beige;
 
 }
 .photoContainer{
-	background-color: gray;
+	background-color:rgba(105,105,105,0.8) ;
+	color: beige;
+	margin-bottom: 5%;
+	
 
 }
 .closetImage {
 	width: 100px;
 	height: 140px;
-}
-.view-all {
-	float: right;
 }
 
 .img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
@@ -37,7 +43,16 @@ height: 130px;
 /*larger view button*/
 .largerView{
 	margin-top:-25%; 
-	margin-bottom:20%;
+	/*margin-bottom:20%;*/
+	opacity: 0.7;
+	background-color: beige;
+	color: black;
+	border: none;
+
+}
+.largerView:hover{
+	background-color: black;
+	color: beige;
 }
 
 .suggestedImage{
@@ -45,3 +60,37 @@ height: 130px;
 	width: 25%;
 	height: 30%;
 }
+
+#panelbackground {
+	background-color:rgba(105,105,105,0.5) ;
+	color: beige;
+}
+.panel-body{
+	background-color:rgba(105,105,105,0.5); 
+}
+.selectedCategory{
+	color: #FFFFF2;
+}
+.panel-title{
+	background-color:#696969;
+	color: beige;
+}
+#panel-heading{
+	background-color:#696969;
+	opacity: 0.8;
+}
+.newItemSubmit{
+	background-color:black;
+	border: none;
+	opacity:0.7;
+}
+.view-all {
+	float: right;
+	background-color:black;
+	border: none;
+	opacity:0.7;
+}
+.fullImage{
+	margin-bottom: 10px;
+}
+
