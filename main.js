@@ -183,9 +183,12 @@ var colTemplate = '\
     </div>';
 var suggestedItemTemplate = '<img class="suggestedImage" src="{{ img }}">';
 
+
+
+
 $(document).on('ready', function() {
 
-	//
+	
 	var findSuggestedItems = function(myItems, filter){
 		//setting variable for basic colors
 		var versatileColors = ['cream','black','white','beige','denim'];
@@ -276,40 +279,43 @@ $(document).on('ready', function() {
 			$(this).find('.suggestedItemContainer').remove();
 
 		})
-	};
+	};   //end of add item 
 
 // .each- acts as 'for loop' but with underscore
-// 'item' parameter is array of objects of myItems 
+// 'item' parameter is array of objects from myItems 
 	_.each(myItems, addItem);
 
 // selecting from menu items on sidebar
 	$('.selectedCategory').on('click', function(){
 		 var type = $(this).attr("data-type");
 		 console.log(type);
-		_.each(myItems, function(item) {
-			if(type === item.type){
-				$('#' + item.id).show();
-			}
-			else {
-				$('#' + item.id).hide();
-			}
-		});
+			_.each(myItems, function(item) {
+				if(type === item.type){
+					$('#' + item.id).show();
+				}
+				else {
+					$('#' + item.id).hide();
+				}
+			});
 	});
+		//reset page to view all images
 	$('.view-all').on('click', function(){
-		console.log('helloworld')
+		// console.log('helloworld')
 			$('.fullImage').show();
 	})
 
 	
 	$(document).on('click','.deleteItem', function(){
-		console.log('hello')
+		// console.log('hello')
 		 var id = $(this).attr('data-delete-id');
 
-		 $(this).parents('.modal').one('hidden.bs.modal', function (e) {
-		 	$('#' + id).remove();
+	 $(this).parents('.modal').one('hidden.bs.modal', function (e) {
+			 $('#' + id).remove();
 		});
 	});
 
+
+		// pulling values of selected options and pushing to myItem array
 	$('.newItemForm').on('submit',function(e){
 		e.preventDefault();
 		var item = {
@@ -319,9 +325,8 @@ $(document).on('ready', function() {
 			color: $('.newItemColor').val(),
 			img: $('.newItemImg').val(),
 			id: _.uniqueId('item')
-		};
+		};			//reset form after submit
 				this.reset();
-
 				addItem(item);
 			myItems.push(item);		
 	});

@@ -1,13 +1,13 @@
 body{
 	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOGRdCpqTHL_UlF2gcFyECKXV7VKL2szPd_86an9C-qhiDbo9K');
 }
-/*@font-face{
-	font-family: myFirstFont;
-	src:url('http://www.1001fonts.com/scriptina-font.html');
-}*/
+
 .appName{
 	text-align: center;
-	font-family: tahoma;
+	/*font-family: 'Just Me Again Down Here', cursive;*/
+	font-family: 'Shadows Into Light Two', cursive;
+	/*font-family: 'Sacramento', cursive;*/
+	font-size: 60px;
 	color: beige;
 
 }
